@@ -1,7 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NZ:wght@100..400&display=swap');
+
+/* Stili CSS per MovPop */
+
 body, html {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Playwrite NZ", cursive;
+    background-color: #111;
+    color: white;
 }
 
 header {
@@ -14,7 +20,18 @@ header {
 }
 
 header .logo {
-    width: 100px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header input[type="text"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin-left: 20px;
+    width: 250px;
+    font-size: 14px;
 }
 
 nav a {
@@ -23,88 +40,49 @@ nav a {
     margin-left: 20px;
 }
 
-footer {
-    background-color: #111;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-}
-.user-settings {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-.settings-icon {
-    width: 100%;
-    display: block; 
-}
-
 /* Banner Section */
 .banner-section{
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 98vh;
-    padding-top: 80px;
     padding-left: 40px;
     padding-right: 40px;
     position: relative;
-    background-image: url('images/example-carousel-2.jpeg');
-}
-.banner-content{
-    display: flex;
-    flex-direction: column;
-    padding-top: 70px;
-}
-.banner-title{
-    color: white;
-    font-size: 84px;
-    line-height: 1.1;
-    margin: 0;
-    margin-bottom: 16px;
-    max-width: 40%;
-}
-.banner-info{
-    margin-bottom: 14px;
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 1.5;
-    color: white;
-}
-.banner-overview{
-    font-size: 16.4px;
-    color: white;
-    line-height: 1.3;
-    max-width: 40%;
+    background: rgb(51,13,20);
+    background: radial-gradient(circle, rgba(51,13,20,0.8548669467787114) 0%, rgba(17,17,17,1) 100%);
 }
 
-.action-buttons-cont{
+.banner-content {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    align-items: center; /* Centra orizzontalmente */
+    justify-content: center; /* Centra verticalmente */
+    text-align: center; /* Centra il testo */
+    padding-top: 70px;
 }
-.action-button{
-    border:none;
-    background-color: white;
-    padding: 8px 23px;
-    margin-right: 11px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
+
+.banner-title {
+    color: white;
+    font-size: 84px;
+    margin: 0;
+    margin-bottom: 30px;
+    max-width: 80%; /* Aumenta la larghezza massima per centrare meglio il testo */
+}
+
+.banner-info  {
+    font-size: 32px;
+    color: white;
+    margin-bottom: 30px;
+    max-width: 80%; /* Aumenta la larghezza massima per centrare meglio il testo */
+}
+
+.banner-overview {
     font-size: 16px;
-    font-weight: 700;
-    cursor:pointer;
+    font-size: 22px;
+    color: white;
+    margin-bottom: 30px;
+    max-width: 80%; /* Aumenta la larghezza massima per centrare meglio il testo */
 }
-.action-button:last-child{
-    background-color: rgba(109, 109, 110, 0.7);
-    color:white;
-} 
 
 .banner-fadeBottom{
     height: 120px;
@@ -117,4 +95,176 @@ footer {
     left:0;
     bottom: 0;
     width: 100%;
+}
+
+.slider-container {
+    overflow-x: scroll;
+    white-space: nowrap;
+    padding: 20px;
+    margin-bottom: 100px;
+}
+
+.movie {
+    width: 200px;
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+    
+}
+
+.movie img {
+    width: 100%;
+    border-radius: 5px;
+    transition: transform 0.2s ease-in-out;
+    
+}
+
+.movie:hover img {
+    transform: scale(1.1);
+}
+
+.description {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.movie:hover .description {
+    display: block;
+}
+
+.description__buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.description__button {
+    width: 25px;
+    height: 25px;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.description__button i {
+    color: white;
+}
+
+.description__text-container {
+    font-size: 12px;
+}
+
+.description__rating {
+    background-color: #444;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+footer {
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+/* film nel dettaglio*/
+
+.movie-detail-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Assicurati che il contenitore occupi tutta l'altezza della finestra */
+    padding: 20px;
+}
+
+.movie-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #111;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    max-width: 600px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.movie-detail-poster img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.movie-detail-info {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.movie-detail-rating i {
+    color: gold;
+    margin: 5px 2px;
+    font-size: 20px;
+}
+
+
+/* barra di ricerca*/
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: rgb(51,13,20);
+    color: white;
+}
+
+.search-bar button:hover {
+    background-color: rgb(72, 19, 29);
+}
+
+/* Personalizzazione della scrollbar */
+.slider-container::-webkit-scrollbar {
+    width: 4px; 
+}
+
+.slider-container::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+.slider-container::-webkit-scrollbar-thumb {
+    background: #b8b8b836; 
+    border-radius: 10px; 
+}
+
+.slider-container::-webkit-scrollbar-thumb:hover {
+    background: #88888847; 
 }
